@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-navy { background-color: #1e2b3c; }
+        .checkbox-label { color: #555; }
+    </style>
+</head>
+<body class="h-screen bg-gray-100">
+
+    <!-- Main Container -->
+    <div class="flex h-full">
+
+        <!-- Sidebar -->
+        <div class="bg-navy w-64 p-4 text-white flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-xl font-bold">frontal</h1>
+                <span class="text-sm">Free trial: 13 days left</span>
+            </div>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-6">Upgrade</button>
+            <input type="text" placeholder="Search..." class="bg-gray-700 text-white p-2 rounded mb-4">
+            <nav class="flex-grow">
+                <ul>
+                    <li class="mb-2">My work</li>
+                    <li class="mb-2">
+                        Teams
+                        <ul class="ml-4 mt-1">
+                            <li>IT / Software Development</li>
+                            <li>Team 1</li>
+                            <li>sam1</li>
+                        </ul>
+                    </li>
+                    <li class="mb-2">
+                        Projects
+                        <ul class="ml-4 mt-1">
+                            <li class="bg-blue-800 p-1 rounded">TesT</li>
+                            <li>proj1</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mt-auto text-blue-300">Invite people</button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col p-6 bg-white overflow-auto">
+
+            <!-- Team Name Section -->
+            <div class="mb-8">
+                <h2 class="font-bold text-lg mb-4">Team settings</h2>
+                <div class="mb-4">
+                    <label for="teamName" class="block text-gray-700 text-sm font-semibold mb-1">Team name</label>
+                    <input type="text" id="teamName" value="Team 1" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                </div>
+                <button class="bg-blue-500 text-white py-2 px-4 rounded">Save changes</button>
+            </div>
+
+            <!-- Types and Colors Section -->
+            <div>
+                <h3 class="font-semibold text-lg mb-4">Types and Colors</h3>
+
+                <!-- Inherit Settings Checkbox -->
+                <div class="flex items-center mb-4">
+                    <input type="checkbox" id="inheritSettings" checked class="mr-2">
+                    <label for="inheritSettings" class="checkbox-label">Inherit settings from workspace</label>
+                    <a href="#" class="ml-2 text-blue-500">Go to workspace settings</a>
+                </div>
+
+                <!-- Task Types -->
+                <h4 class="font-semibold text-md mb-2">Task types</h4>
+                <div class="flex space-x-2 mb-4">
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-md">Operational</span>
+                    <span class="bg-blue-50 text-blue-500 px-3 py-1 rounded-md">Technical</span>
+                    <span class="bg-green-50 text-green-500 px-3 py-1 rounded-md">Strategic</span>
+                    <span class="bg-green-100 text-green-600 px-3 py-1 rounded-md">Hiring</span>
+                    <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-md">Financial</span>
+                </div>
+
+                <!-- Event Types -->
+                <h4 class="font-semibold text-md mb-2">Event types</h4>
+                <div class="flex space-x-2 mb-4">
+                    <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-md">Meeting</span>
+                    <span class="bg-purple-50 text-purple-500 px-3 py-1 rounded-md">Online call</span>
+                    <span class="bg-pink-50 text-pink-500 px-3 py-1 rounded-md">Interview</span>
+                </div>
+
+                <!-- Edit Button -->
+                <button class="bg-blue-500 text-white py-2 px-4 rounded">Edit types</button>
+
+                <!-- Default Types Section -->
+                <div class="mt-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Default type for tasks in this team</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500">
+                        <option selected>Operational</option>
+                        <option>Technical</option>
+                        <option>Strategic</option>
+                    </select>
+
+                    <label class="block text-sm font-semibold text-gray-700 mt-4 mb-2">Default type for events in this team</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500">
+                        <option selected>Meeting</option>
+                        <option>Online call</option>
+                        <option>Interview</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

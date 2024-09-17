@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .divider-line {
+            border-left: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen">
+        <!-- Pre Sidebar -->
+        <div class="w-16 bg-gray-100 p-4">
+            <ul class="space-y-4">
+                <li class="text-blue-500">Tools</li>
+                <li>Calendar</li>
+                <li>Notes</li>
+                <li>People</li>
+                <li>Settings</li>
+            </ul>
+            <div class="mt-auto text-blue-500">
+                <button>Hide Tools</button>
+            </div>
+        </div>
+
+        <!-- Divider Line -->
+        <div class="divider-line"></div>
+
+        <!-- Main Sidebar -->
+        <div class="w-64 bg-blue-900 text-white p-4">
+            <div class="mb-8">
+                <h1 class="text-xl font-bold">Frontal</h1>
+                <p class="text-sm">Free trial: 14 days left</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2 w-full">Upgrade</button>
+            </div>
+            <nav class="mb-8">
+                <ul>
+                    <li class="mb-2"><a href="#" class="flex items-center"><span class="mr-2">🔍</span> Search...</a></li>
+                    <li class="mb-2"><a href="#" class="flex items-center"><span class="mr-2">👤</span> My work</a></li>
+                    <li class="mb-2 flex justify-between items-center"><span class="flex items-center"><span class="mr-2">👥</span> Teams</span><span>+</span></li>
+                    <li class="mb-2 flex justify-between items-center"><span class="flex items-center"><span class="mr-2">📁</span> IT / Software Development</span><span>+</span></li>
+                    <li class="mb-2"><a href="#" class="flex items-center text-blue-300">TeST</a></li>
+                </ul>
+            </nav>
+            <div class="mt-auto">
+                <button class="bg-blue-800 text-white px-4 py-2 rounded w-full">Invite people</button>
+            </div>
+        </div>
+
+        <!-- Divider Line -->
+        <div class="divider-line"></div>
+
+        <!-- Main content -->
+        <div class="flex-1 p-8">
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex space-x-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded shadow">+ Add new</button>
+                    <button class="bg-white px-4 py-2 rounded shadow">Table view</button>
+                    <button class="bg-white px-4 py-2 rounded shadow">Kanban board</button>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-white p-2 rounded-full shadow">
+                        <img src="https://via.placeholder.com/32" alt="User" class="w-8 h-8 rounded-full"/>
+                    </button>
+                    <button class="bg-white p-2 rounded-full shadow">🔔</button>
+                </div>
+            </div>
+
+            <!-- Section 1: Active Tasks -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4">Active tasks <span class="text-gray-500">(1)</span></h2>
+                <table class="w-full">
+                    <thead>
+                        <tr class="text-left">
+                            <th class="pb-2">Task</th>
+                            <th class="pb-2">Status</th>
+                            <th class="pb-2">Type</th>
+                            <th class="pb-2">Due date</th>
+                            <th class="pb-2">Responsible</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2">task 1</td>
+                            <td class="py-2"><span class="bg-yellow-200 text-yellow-800 px-2 py-1 rounded">In Progress</span></td>
+                            <td class="py-2"><span class="bg-blue-200 text-blue-800 px-2 py-1 rounded">Operational</span></td>
+                            <td class="py-2"></td>
+                            <td class="py-2">
+                                <img src="https://via.placeholder.com/24" alt="Me" class="w-6 h-6 rounded-full inline-block mr-2"/>
+                                Me
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="text-blue-500 mt-4">+ Add task</button>
+            </div>
+
+            <!-- Section 2: Completed Tasks (Collapsible) -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4">Completed tasks <span class="text-gray-500">(0)</span></h2>
+                <p class="text-gray-500">No completed tasks yet</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

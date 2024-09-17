@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Screen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-navy { background-color: #1e2b3c; }
+        .note-placeholder { color: #a1a1a1; }
+    </style>
+</head>
+<body class="h-screen bg-gray-100">
+
+    <!-- Main Container -->
+    <div class="flex h-full">
+
+        <!-- Sidebar -->
+        <div class="bg-navy w-64 p-4 text-white flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-xl font-bold">frontal</h1>
+                <span class="text-sm">Free trial: 13 days left</span>
+            </div>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-6">Upgrade</button>
+            <input type="text" placeholder="Search..." class="bg-gray-700 text-white p-2 rounded mb-4">
+            <nav class="flex-grow">
+                <ul>
+                    <li class="mb-2">My work</li>
+                    <li class="mb-2">
+                        Teams
+                        <ul class="ml-4 mt-1">
+                            <li>IT / Software Development</li>
+                            <li>Team 1</li>
+                            <li>sam1</li>
+                        </ul>
+                    </li>
+                    <li class="mb-2">
+                        Projects
+                        <ul class="ml-4 mt-1">
+                            <li class="bg-blue-800 p-1 rounded">TesT</li>
+                            <li>proj1</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mt-auto text-blue-300">Invite people</button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col p-6 bg-white">
+
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <button class="bg-blue-500 text-white py-2 px-4 rounded">+ Add note</button>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="flex-1 flex justify-center items-center">
+                <div class="text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-300 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 10c0-1.657-1.343-3-3-3H8C6.343 7 5 8.343 5 10v4c0 1.657 1.343 3 3 3h8c1.657 0 3-1.343 3-3v-4z" />
+                    </svg>
+                    <p class="text-gray-500 text-lg font-semibold mb-1">No notes yet</p>
+                    <p class="text-gray-400">Create your first note</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

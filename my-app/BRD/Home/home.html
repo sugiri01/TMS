@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-navy { background-color: #1e2b3c; }
+        .table-header { background-color: #f9f9f9; }
+        .table-row { border-bottom: 1px solid #eaeaea; }
+    </style>
+</head>
+<body class="h-screen bg-gray-100">
+
+    <!-- Main Container -->
+    <div class="flex h-full">
+
+        <!-- Sidebar -->
+        <div class="bg-navy w-64 p-4 text-white flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-xl font-bold">frontal</h1>
+                <span class="text-sm">Free trial: 14 days left</span>
+            </div>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-6">Upgrade</button>
+            <input type="text" placeholder="Search..." class="bg-gray-700 text-white p-2 rounded mb-4">
+            <nav class="flex-grow">
+                <ul>
+                    <li class="mb-2">My work</li>
+                    <li class="mb-2">
+                        Teams
+                        <ul class="ml-4 mt-1">
+                            <li>IT / Software Development</li>
+                            <li>Team 1</li>
+                        </ul>
+                    </li>
+                    <li class="mb-2">
+                        Projects
+                        <ul class="ml-4 mt-1">
+                            <li class="bg-blue-800 p-1 rounded">TesT</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mt-auto text-blue-300">Invite people</button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col bg-white p-6">
+
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <button class="bg-blue-500 text-white py-2 px-4 rounded">+ Add new</button>
+                <div class="flex">
+                    <button class="mr-2 text-gray-500">Table view</button>
+                    <button class="text-gray-500">Kanban board</button>
+                </div>
+            </div>
+
+            <!-- Task Table -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <!-- Table Header -->
+                <div class="table-header text-left text-gray-500 p-4 grid grid-cols-5 gap-4">
+                    <span>Task</span>
+                    <span>Status</span>
+                    <span>Type</span>
+                    <span>Due date</span>
+                    <span>Create in</span>
+                </div>
+
+                <!-- Table Rows -->
+                <div class="table-row p-4 grid grid-cols-5 gap-4 items-center">
+                    <span>Watch a short demo video</span>
+                    <span class="text-green-500">New task</span>
+                    <span class="text-yellow-500">Financial</span>
+                    <span><i class="far fa-calendar-alt"></i></span>
+                    <span>IT / Software Development</span>
+                </div>
+
+                <div class="table-row p-4 grid grid-cols-5 gap-4 items-center">
+                    <span>Download Bordio's mobile app on your phone</span>
+                    <span class="text-green-500">New task</span>
+                    <span class="text-yellow-500">Financial</span>
+                    <span><i class="far fa-calendar-alt"></i></span>
+                    <span>IT / Software Development</span>
+                </div>
+
+                <div class="table-row p-4 grid grid-cols-5 gap-4 items-center">
+                    <span>Connect your Google Calendar</span>
+                    <span class="text-green-500">New task</span>
+                    <span class="text-yellow-500">Financial</span>
+                    <span><i class="far fa-calendar-alt"></i></span>
+                    <span>IT / Software Development</span>
+                </div>
+
+                <div class="table-row p-4 grid grid-cols-5 gap-4 items-center">
+                    <span>Plan your week</span>
+                    <span class="text-green-500">New task</span>
+                    <span class="text-blue-500">Strategic</span>
+                    <span><i class="far fa-calendar-alt"></i></span>
+                    <span>IT / Software Development</span>
+                </div>
+
+                <!-- Add task button -->
+                <div class="p-4">
+                    <p class="text-blue-500 cursor-pointer">+ Add task</p>
+                </div>
+            </div>
+
+            <!-- Completed tasks section -->
+            <div class="mt-6">
+                <h3 class="font-semibold mb-4">Completed tasks</h3>
+                <p>No completed tasks yet</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

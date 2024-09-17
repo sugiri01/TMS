@@ -1,0 +1,24 @@
+/* Reset some basic elements */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Remove default styles */
+.App {
+  text-align: initial;
+}
+
+/* Ensure full height for our app */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-overlay {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .modal-container {
+            background: white;
+            width: 500px;
+            border-radius: 8px;
+        }
+        .custom-dropdown {
+            padding: 0.5rem 1rem;
+            background-color: #f1f5f9;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+        }
+    </style>
+</head>
+<body class="h-screen bg-gray-100">
+
+    <!-- Overlay -->
+    <div class="fixed inset-0 flex items-center justify-center bg-overlay z-50">
+        <!-- Modal -->
+        <div class="modal-container p-8 shadow-lg relative">
+            <!-- Modal Header -->
+            <h2 class="text-lg font-semibold mb-4">Create project in <span class="text-gray-500">frontal</span> <i class="fas fa-caret-down"></i></h2>
+            
+            <!-- Form -->
+            <form>
+                <!-- Project Name -->
+                <div class="mb-4">
+                    <label for="projectName" class="block text-sm font-medium text-gray-700 mb-1">Project name</label>
+                    <input type="text" id="projectName" placeholder="Enter project name" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <p class="text-sm text-red-600 mt-1">Please enter the name of the project</p>
+                </div>
+
+                <!-- Participants -->
+                <div class="mb-4">
+                    <h3 class="text-sm font-semibold mb-2">Participants</h3>
+                    <div class="flex items-center space-x-2">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full">
+                        <p class="text-sm">sudhir giri <span class="text-blue-500 ml-2">👑</span></p>
+                        <a href="#" class="text-blue-500 text-sm">Add users</a>
+                    </div>
+                </div>
+
+                <!-- Default Types -->
+                <div class="mb-4">
+                    <h3 class="text-sm font-semibold mb-2">Default types</h3>
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="text-sm text-gray-700">Default type for tasks</label>
+                        <select class="custom-dropdown">
+                            <option>Operational</option>
+                            <option>Technical</option>
+                            <option>Strategic</option>
+                        </select>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <label class="text-sm text-gray-700">Default type for events</label>
+                        <select class="custom-dropdown">
+                            <option>Meeting</option>
+                            <option>Workshop</option>
+                            <option>Conference</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex justify-end space-x-2">
+                    <button type="button" class="text-gray-600 border border-gray-300 py-2 px-4 rounded">Cancel</button>
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Create project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

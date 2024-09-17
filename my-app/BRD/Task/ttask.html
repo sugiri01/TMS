@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Task Screen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-navy { background-color: #1e2b3c; }
+        .table-header { background-color: #f9f9f9; }
+        .table-row { border-bottom: 1px solid #eaeaea; }
+        .add-task:hover { color: #007bff; cursor: pointer; }
+    </style>
+</head>
+<body class="h-screen bg-gray-100">
+
+    <!-- Main Container -->
+    <div class="flex h-full">
+
+        <!-- Sidebar -->
+        <div class="bg-navy w-64 p-4 text-white flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-xl font-bold">frontal</h1>
+                <span class="text-sm">Free trial: 13 days left</span>
+            </div>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-6">Upgrade</button>
+            <input type="text" placeholder="Search..." class="bg-gray-700 text-white p-2 rounded mb-4">
+            <nav class="flex-grow">
+                <ul>
+                    <li class="mb-2">My work</li>
+                    <li class="mb-2">
+                        Teams
+                        <ul class="ml-4 mt-1">
+                            <li>IT / Software Development</li>
+                            <li>Team 1</li>
+                            <li>sam1</li>
+                        </ul>
+                    </li>
+                    <li class="mb-2">
+                        Projects
+                        <ul class="ml-4 mt-1">
+                            <li class="bg-blue-800 p-1 rounded">TesT</li>
+                            <li>proj1</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mt-auto text-blue-300">Invite people</button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col p-6 bg-white">
+
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <button class="bg-blue-500 text-white py-2 px-4 rounded">+ Add new</button>
+                <div class="flex">
+                    <button class="mr-2 text-gray-500">Table view</button>
+                    <button class="text-gray-500">Kanban board</button>
+                </div>
+            </div>
+
+            <!-- Task List -->
+            <div class="flex-1">
+                <!-- Active Tasks -->
+                <h3 class="font-bold text-lg mb-4">Active tasks</h3>
+                <div class="bg-white rounded-lg shadow overflow-hidden mb-6">
+                    <div class="table-header text-left text-gray-500 p-4 grid grid-cols-6 gap-4">
+                        <span>Task</span>
+                        <span>Status</span>
+                        <span>Type</span>
+                        <span>Due date</span>
+                        <span>Responsible</span>
+                        <span>Create in</span>
+                    </div>
+                    <div class="table-row p-4 grid grid-cols-6 gap-4 items-center">
+                        <span>task 1</span>
+                        <span class="text-green-500">In Progress</span>
+                        <span class="text-blue-500">Technical</span>
+                        <span><i class="far fa-calendar-alt"></i></span>
+                        <span><i class="far fa-user-circle"></i> Nobody</span>
+                        <span>TesT</span>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-blue-500 add-task">+ Add task</p>
+                    </div>
+                </div>
+
+                <!-- Completed Tasks -->
+                <h3 class="font-bold text-lg mb-4">Completed tasks</h3>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <p>No completed tasks yet</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

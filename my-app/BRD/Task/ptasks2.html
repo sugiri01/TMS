@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+    <style>
+        .divider-line {
+            border-left: 1px solid #e2e8f0;
+        }
+        .tools-sidebar {
+            transition: width 0.3s ease;
+        }
+        .tools-sidebar.collapsed {
+            width: 3rem;
+        }
+        .task-section {
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            max-height: 1000px;
+            opacity: 1;
+        }
+        .task-section.collapsed {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen">
+        <!-- Left Sidebar -->
+        <div class="w-64 bg-blue-900 text-white p-4 flex flex-col">
+            <div class="mb-8">
+                <h1 class="text-xl font-bold">frontal</h1>
+                <p class="text-sm">Free trial: 14 days left</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2 w-full">Upgrade</button>
+            </div>
+            <nav class="mb-8 flex-grow">
+                <ul>
+                    <li class="mb-2"><a href="#" class="flex items-center"><i data-lucide="search" class="w-4 h-4 mr-2"></i> Search...</a></li>
+                    <li class="mb-2"><a href="#" class="flex items-center"><i data-lucide="user" class="w-4 h-4 mr-2"></i> My work</a></li>
+                    <li class="mb-2 flex justify-between items-center"><span class="flex items-center"><i data-lucide="users" class="w-4 h-4 mr-2"></i> Teams</span><span>+</span></li>
+                    <li class="mb-2 flex justify-between items-center"><span class="flex items-center"><i data-lucide="folder" class="w-4 h-4 mr-2"></i> IT / Software Development</span><span>+</span></li>
+                    <li class="mb-2"><a href="#" class="flex items-center bg-blue-800 rounded px-2 py-1">TeST</a></li>
+                </ul>
+            </nav>
+            <div class="mt-auto">
+                <button class="bg-blue-800 text-white px-4 py-2 rounded w-full flex items-center justify-center">
+                    <i data-lucide="user-plus" class="w-4 h-4 mr-2"></i> Invite people
+                </button>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Top navigation -->
+            <div class="bg-white p-4 flex justify-between items-center shadow-sm">
+                <div class="flex space-x-4 items-center">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded">+ Add new</button>
+                    <button class="text-gray-600 flex items-center"><i data-lucide="table" class="w-4 h-4 mr-2"></i> Table view</button>
+                    <button class="text-gray-600 flex items-center"><i data-lucide="layout-grid" class="w-4 h-4 mr-2"></i> Kanban board</button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 flex items-center"><i data-lucide="users" class="w-4 h-4 mr-2"></i> Group</button>
+                    <button class="p-2 rounded-full">
+                        <img src="/api/placeholder/32/32" alt="User" class="w-8 h-8 rounded-full"/>
+                    </button>
+                    <button class="text-gray-600"><i data-lucide="bell" class="w-6 h-6"></i></button>
+                    <button class="p-2 rounded-full">
+                        <img src="/api/placeholder/32/32" alt="User" class="w-8 h-8 rounded-full"/>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tools sidebar and Main content area -->
+            <div class="flex flex-1">
+                <div id="toolsSidebar" class="tools-sidebar bg-gray-100 p-4 flex flex-col">
+                    <ul class="space-y-4 flex-grow">
+                        <li class="text-blue-500"><i data-lucide="check-square" class="w-6 h-6"></i></li>
+                        <li class="text-gray-500"><i data-lucide="calendar" class="w-6 h-6"></i></li>
+                        <li class="text-gray-500"><i data-lucide="file-text" class="w-6 h-6"></i></li>
+                        <li class="text-gray-500"><i data-lucide="users" class="w-6 h-6"></i></li>
+                        <li class="text-gray-500"><i data-lucide="settings" class="w-6 h-6"></i></li>
+                    </ul>
+                    <div class="mt-auto text-gray-500">
+                        <button id="toggleToolsSidebar" class="flex items-center">
+                            <i data-lucide="chevron-left" class="w-6 h-6 mr-2"></i>
+                            <span class="tools-text">Hide Tools</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main content area -->
+                <div class="flex-1 p-8 overflow-auto">
+                    <!-- Active Tasks -->
+                    <div class="bg-white rounded-lg shadow mb-6">
+                        <div class="p-4 flex justify-between items-center border-b cursor-pointer" id="activeTasksHeader">
+                            <h2 class="text-lg font-semibold">Active tasks <span class="text-gray-500">(1)</span></h2>
+                            <i data-lucide="chevron-up" class="w-6 h-6 text-gray-400"></i>
+                        </div>
+                        <div id="activeTasksContent" class="task-section">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="text-left text-gray-500 border-b">
+                                        <th class="p-4">Task</th>
+                                        <th class="p-4">Status</th>
+                                        <th class="p-4">Type</th>
+                                        <th class="p-4">Due date</th>
+                                        <th class="p-4">Responsible</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-4">task 1</td>
+                                        <td class="p-4"><span class="bg-yellow-200 text-yellow-800 px-2 py-1 rounded">In Progress</span></td>
+                                        <td class="p-4"><span class="bg-blue-200 text-blue-800 px-2 py-1 rounded">Operational</span></td>
+                                        <td class="p-4"></td>
+                                        <td class="p-4">
+                                            <img src="/api/placeholder/24/24" alt="Me" class="w-6 h-6 rounded-full inline-block mr-2"/>
+                                            Me
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="p-4 border-t">
+                                <button class="text-blue-500">+ Add task</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Completed Tasks -->
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="p-4 flex justify-between items-center border-b cursor-pointer" id="completedTasksHeader">
+                            <h2 class="text-lg font-semibold">Completed tasks <span class="text-gray-500">(0)</span></h2>
+                            <i data-lucide="chevron-up" class="w-6 h-6 text-gray-400"></i>
+                        </div>
+                        <div id="completedTasksContent" class="task-section">
+                            <div class="p-4">
+                                <p class="text-gray-500">No completed tasks yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Toggle tools sidebar
+        const toolsSidebar = document.getElementById('toolsSidebar');
+        const toggleToolsSidebar = document.getElementById('toggleToolsSidebar');
+        const toolsText = document.querySelector('.tools-text');
+
+        toggleToolsSidebar.addEventListener('click', () => {
+            toolsSidebar.classList.toggle('collapsed');
+            if (toolsSidebar.classList.contains('collapsed')) {
+                toggleToolsSidebar.innerHTML = '<i data-lucide="chevron-right" class="w-6 h-6"></i>';
+                toolsText.style.display = 'none';
+            } else {
+                toggleToolsSidebar.innerHTML = '<i data-lucide="chevron-left" class="w-6 h-6 mr-2"></i><span class="tools-text">Hide Tools</span>';
+                toolsText.style.display = 'inline';
+            }
+            lucide.createIcons();
+        });
+
+        // Toggle task sections
+        function toggleTaskSection(header, content) {
+            header.addEventListener('click', () => {
+                content.classList.toggle('collapsed');
+                const icon = header.querySelector('[data-lucide]');
+                if (content.classList.contains('collapsed')) {
+                    icon.setAttribute('data-lucide', 'chevron-down');
+                } else {
+                    icon.setAttribute('data-lucide', 'chevron-up');
+                }
+                lucide.createIcons();
+            });
+        }
+
+        toggleTaskSection(document.getElementById('activeTasksHeader'), document.getElementById('activeTasksContent'));
+        toggleTaskSection(document.getElementById('completedTasksHeader'), document.getElementById('completedTasksContent'));
+    </script>
+</body>
+</html>

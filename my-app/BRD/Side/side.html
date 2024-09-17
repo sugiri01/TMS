@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details Sliding Screen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .slide-in {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .slide-in-active {
+            transform: translateX(0);
+        }
+        .bg-navy {
+            background-color: #1e2b3c;
+        }
+        .custom-shadow {
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 h-screen flex">
+
+    <!-- Left Sidebar -->
+    <div class="bg-navy w-64 p-4 text-white">
+        <div class="mb-8">
+            <h1 class="text-xl font-bold mb-2">frontal</h1>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded w-full">Upgrade</button>
+        </div>
+        <nav>
+            <ul>
+                <li class="mb-2">My work</li>
+                <li class="mb-2">
+                    Teams
+                    <ul class="ml-4">
+                        <li>IT / Software Development</li>
+                        <li>Team 1</li>
+                    </ul>
+                </li>
+                <li class="mb-2">
+                    Projects
+                    <ul class="ml-4">
+                        <li class="bg-blue-800 p-1 rounded">TesT</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="mt-auto">
+            <button class="text-blue-300">Invite people</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex">
+        <!-- Tools Sidebar -->
+        <div class="w-48 bg-white border-r p-4">
+            <h2 class="font-bold mb-4">Tools</h2>
+            <ul>
+                <li class="mb-2 text-blue-500">Tasks</li>
+                <li class="mb-2">Calendar</li>
+                <li class="mb-2">Notes</li>
+                <li class="mb-2">People</li>
+                <li class="mb-2">Settings</li>
+            </ul>
+        </div>
+
+        <!-- Task List -->
+        <div class="flex-1 p-4">
+            <div class="flex justify-between mb-4">
+                <button class="bg-blue-500 text-white py-1 px-3 rounded">+ Add new</button>
+                <div>
+                    <button class="mr-2">Table view</button>
+                    <button>Kanban board</button>
+                </div>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Active tasks</h3>
+                <div class="bg-white p-2 rounded shadow">
+                    <p id="taskButton" class="cursor-pointer">task 1</p>
+                </div>
+                <p class="text-blue-500 mt-2">+ Add task</p>
+            </div>
+            <div class="mt-4">
+                <h3 class="font-bold mb-2">Completed tasks</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sliding Panel -->
+    <div id="taskDetails" class="slide-in fixed top-0 right-0 w-1/3 h-full bg-white custom-shadow border-l border-gray-300 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center pb-4">
+                <h2 class="text-2xl font-semibold">task 1</h2>
+                <button id="closeButton" class="text-gray-600 text-xl">&times;</button>
+            </div>
+
+            <div class="mt-6">
+                <div class="flex justify-between py-2">
+                    <span class="text-gray-500">Status</span>
+                    <span class="font-semibold text-black">In Progress</span>
+                </div>
+
+                <div class="flex justify-between py-2">
+                    <span class="text-gray-500">Type</span>
+                    <span class="font-semibold text-black">Operational</span>
+                </div>
+
+                <div class="flex justify-between py-2">
+                    <span class="text-gray-500">Due date</span>
+                    <span class="font-semibold text-black">No due date</span>
+                </div>
+
+                <div class="flex justify-between py-2">
+                    <span class="text-gray-500">Responsible</span>
+                    <span class="font-semibold text-black">Nobody</span>
+                </div>
+
+                <div class="flex justify-between py-2">
+                    <span class="text-gray-500">Reporter</span>
+                    <div class="flex items-center">
+                        <img src="/api/placeholder/24/24" alt="Reporter" class="w-6 h-6 rounded-full mr-2">
+                        <span class="font-semibold text-black">sudhir giri</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex mt-6 space-x-2">
+                <button class="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300">Add subtask</button>
+                <button class="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300">Attach file</button>
+            </div>
+
+            <div class="flex mt-2 space-x-2">
+                <button class="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300">Add tag</button>
+                <button class="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300">Repeat task</button>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="font-semibold mb-2">Description</h3>
+                <p class="text-gray-500">Write the description</p>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="font-semibold mb-2">Time blocks</h3>
+                <div class="bg-blue-50 p-4 rounded">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span>15 Sep 2024</span>
+                        </div>
+                        <div>
+                            <span class="mr-4">Planned: 0h</span>
+                            <span>Spent: 0h</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2 bg-gray-100 p-4 rounded">
+                    <div class="flex justify-between items-center">
+                        <span>Waiting list</span>
+                        <div>
+                            <span class="mr-4">Planned: 0h</span>
+                            <span>Spent: 0h</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="mt-2 text-blue-500">+ Add time block</button>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="font-semibold mb-2">15 Sep</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li>sudhir giri created a task</li>
+                    <li>sudhir giri changed the task status to Completed</li>
+                    <li>sudhir giri changed the date of the timeblock</li>
+                    <li>sudhir giri changed the task status to In Progress</li>
+                    <li>sudhir giri changed the responsible for the task from sudhir giri to nobody</li>
+                    <li>sudhir giri added a new timeblock</li>
+                    <li>sudhir giri added a new timeblock</li>
+                    <li>sudhir giri deleted the timeblock</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const taskButton = document.getElementById('taskButton');
+        const taskDetails = document.getElementById('taskDetails');
+        const closeButton = document.getElementById('closeButton');
+
+        taskButton.addEventListener('click', () => {
+            taskDetails.classList.add('slide-in-active');
+        });
+
+        closeButton.addEventListener('click', () => {
+            taskDetails.classList.remove('slide-in-active');
+        });
+    </script>
+
+</body>
+</html>

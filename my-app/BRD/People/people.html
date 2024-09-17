@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Screen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-navy { background-color: #1e2b3c; }
+        .table-header { background-color: #f9f9f9; }
+        .table-row { border-bottom: 1px solid #eaeaea; }
+    </style>
+</head>
+<body class="h-screen bg-gray-100">
+
+    <!-- Main Container -->
+    <div class="flex h-full">
+
+        <!-- Sidebar -->
+        <div class="bg-navy w-64 p-4 text-white flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-xl font-bold">frontal</h1>
+                <span class="text-sm">Free trial: 13 days left</span>
+            </div>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded mb-6">Upgrade</button>
+            <input type="text" placeholder="Search..." class="bg-gray-700 text-white p-2 rounded mb-4">
+            <nav class="flex-grow">
+                <ul>
+                    <li class="mb-2">My work</li>
+                    <li class="mb-2">
+                        Teams
+                        <ul class="ml-4 mt-1">
+                            <li>IT / Software Development</li>
+                            <li>Team 1</li>
+                            <li>sam1</li>
+                        </ul>
+                    </li>
+                    <li class="mb-2">
+                        Projects
+                        <ul class="ml-4 mt-1">
+                            <li class="bg-blue-800 p-1 rounded">TesT</li>
+                            <li>proj1</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mt-auto text-blue-300">Invite people</button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col p-6 bg-white">
+
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <button class="bg-blue-500 text-white py-2 px-4 rounded">+ Add new</button>
+            </div>
+
+            <!-- People Table -->
+            <div class="flex-1">
+                <div class="bg-white rounded-lg shadow overflow-hidden mb-6">
+                    <div class="table-header text-left text-gray-500 p-4 grid grid-cols-5 gap-4">
+                        <span>User</span>
+                        <span>Email</span>
+                        <span>Role in team</span>
+                        <span>Status</span>
+                    </div>
+                    <!-- Table Row -->
+                    <div class="table-row p-4 grid grid-cols-5 gap-4 items-center">
+                        <div class="flex items-center">
+                            <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full">
+                            <span class="ml-2">sudhir.a.giri@gmail.com</span>
+                        </div>
+                        <span>sudhir.a.giri@gmail.com</span>
+                        <span>Team member</span>
+                        <span class="text-blue-500">Invited</span>
+                    </div>
+                    <!-- Add Users -->
+                    <div class="p-4">
+                        <p class="text-blue-500 cursor-pointer">+ Add users</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
